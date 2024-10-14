@@ -1,0 +1,27 @@
+[
+  {
+  "userName": "invalidUserName",
+  "password": "secret_sauce",
+  "expResult": "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+  "userName": "standard_user",
+  "password": "invalidPassword",
+  "expResult": "Epic sadface: Username and password do not match any user in this service"
+  },
+   {
+  "userName": "",
+  "password": "secret_sauce",
+  "expResult": "Epic sadface: Username is required"
+  },
+  {
+  "userName": "standard_user",
+  "password": "",
+  "expResult": "Epic sadface: Password is required"
+  },
+  {
+  "userName": "standard_user",
+  "password": "secret_sauce",
+  "expResult": "Swag Labs"
+  }
+]

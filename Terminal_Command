@@ -1,0 +1,6 @@
+How to run allure report
+
+1. pytest --alluredir=allure_report
+2. allure serve "C:\Users\Change Me\Desktop\Swags\allure_report"
+
+
