@@ -7,7 +7,7 @@ class Login:
     passwordID = "password"
     loginButtonID = "login-button"
     dashboardLogoXpath = "//div[@class='app_logo']"
-    invalidUserErrorXpath = "//h3[contains(text(),'Epic sadface: Username and password do not match a')]"
+    invalidUserErrorXpath = "//h3[contains(text(),'Username and password do not match')]"
     userNameRequiredErrorXpath = "//h3[normalize-space()='Epic sadface: Username is required']"
     passwordRequiredErrorXpath = "//h3[normalize-space()='Epic sadface: Password is required']"
 
@@ -29,7 +29,8 @@ class Login:
         return self.driver.find_element(By.XPATH, self.dashboardLogoXpath).text
 
     def invalidUserNamePassError(self):
-        return self.driver.find_element(By.XPATH, self.invalidUserErrorXpath).text
+        errorText = self.driver.find_element(By.XPATH, self.invalidUserErrorXpath).text
+        return errorText
 
     def userNameRequiredError(self):
         return self.driver.find_element(By.XPATH, self.userNameRequiredErrorXpath).text
@@ -37,5 +38,7 @@ class Login:
     def passwordRequiredError(self):
         return self.driver.find_element(By.XPATH, self.passwordRequiredErrorXpath).text
 
-
+    def hmm(self):
+        x = self.driver.find_element(By.XPATH, self.dashboardLogoXpath)
+        assert x.is_displayed()
 
