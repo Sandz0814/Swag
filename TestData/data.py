@@ -1,9 +1,10 @@
 import json
+import os
 
 
 def userData():
-    # Path to your JSON file
-    file_path = 'C:/Users/Change Me/Desktop/Swags/TestData/user.json'
+
+    file_path = os.path.join(os.path.dirname(__file__), 'user.json')
 
     # Open and read the JSON file
     with open(file_path, 'r') as file:

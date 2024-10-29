@@ -1,9 +1,11 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 
 
 class Login:
 
-    userNameFieldId = "user-name"
+    userNameFieldXpath = "//input[@id='user-name']"
     passwordID = "password"
     loginButtonID = "login-button"
     dashboardLogoXpath = "//div[@class='app_logo']"
@@ -15,8 +17,10 @@ class Login:
         self.driver = driver
 
     def inputUserName(self, userName):
-        self.driver.find_element(By.ID, self.userNameFieldId).clear()
-        self.driver.find_element(By.ID, self.userNameFieldId).send_keys(userName)
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(ec.presence_of_element_located((By.XPATH, self.userNameFieldXpath)))
+        element.clear()
+        element.send_keys(userName)
 
     def inputPassword(self, password):
         self.driver.find_element(By.ID, self.passwordID).clear()
