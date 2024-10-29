@@ -2,11 +2,14 @@ import configparser
 import os
 from selenium import webdriver
 import pytest
+from env.test_data import TestData
 
-file = os.path.join(os.path.dirname(__file__), 'config.ini')
+"""
 config = configparser.ConfigParser()
+file = os.path.join(os.path.dirname(__file__), 'config.ini')
 config.read(file)
-url = config['website']['url']
+site = config['website']['url']
+"""
 
 
 @pytest.fixture(scope='class')
@@ -15,7 +18,7 @@ def setup(request):
     driver.implicitly_wait(10)
     driver.maximize_window()
 
-    driver.get(url)
+    driver.get(TestData.siteUrl)
 
     request.cls.driver = driver
     yield driver
