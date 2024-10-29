@@ -3,9 +3,9 @@ import os
 from selenium import webdriver
 import pytest
 
-
+file = os.path.join(os.path.dirname(__file__), 'config.ini')
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read(file)
 url = config['website']['url']
 
 

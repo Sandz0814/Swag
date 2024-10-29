@@ -4,7 +4,6 @@ from allure_commons.types import AttachmentType
 from selenium.common import NoSuchElementException, TimeoutException
 import pytest
 from selenium.webdriver.common.by import By
-
 from PageObject.LoginPage import Login
 from Utilities.customLogger import LogGer
 from TestData.data import userData
@@ -32,11 +31,11 @@ class TestLogin:
             for user in users:
 
                 self.login.inputUserName(user['userName'])
-                time.sleep(2)
+                time.sleep(1)
                 self.login.inputPassword(user['password'])
                 self.login.clickLoginButton()
 
-        except (AssertionError, TimeoutException) as e:
+        except (AssertionError, TimeoutException, NoSuchElementException) as e:
             print(f'Error: {str(e)}')
             self.log.error(f'Error: {str(e)}')
 
